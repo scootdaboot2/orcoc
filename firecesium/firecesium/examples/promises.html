@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promises Hello World for IE11</title>
+</head>
+<body>
+<h1>RUN IN IE11  -- Chrome/FF already implements it's own Promises API</h1>
+<script>
+// var pending = 0;
+// var fulfilled = 1;
+// var rejected = 2;
+
+// function Promise(fn) {
+// 	// store state which can be pending, fulfilled or rejected
+// 	var state = pending;
+// 	// store value or error once fulfilled or rejected
+// 	var value = null;
+// 	// store success & failure handlers attached by calling .then or .done
+// 	var handlers = [];
+
+// 	function fullfill(result) {
+// 		state = fulfilled;
+// 		value = result;
+// 	}
+
+// 	function reject(error) {
+// 		state = rejected;
+// 		value = error;
+// 	}
+// 	// higher-level transition 'resolve()'
+// 	function resolve(result) {
+// 		try {
+// 			var then = getThen(result);
+// 			if (then) {
+// 				doResolve(then.bind(result), resolve, reject)
+// 				return
+// 			}
+// 			fulfill(result);
+// 		}
+// 		catch (e) {
+// 			reject(e);
+// 		}
+// 	}
+
+// 	function handle(handler) {
+// 		if (state === pending) {
+// 			handlers.push(handler);
+// 		}
+// 		else {
+// 			if (state === fulfilled && typeof handler.onFulfilled === 'function') {
+// 				handler.onFulfilled(value);
+// 			}
+// 			if (state === rejected && typeof handler.onRejected === 'function') {
+// 				handler.onRejected(value);
+// 			}
+// 		}
+// 	}
+
+// 	this.done = function(onFulfilled, onRejected) {
+// 		// ensure we are always asynchronous 
+// 		setTimeout(function() {
+// 			handle({
+// 				onFulfilled: onFulfilled,
+// 				onRejected: onRejected
+// 			});
+// 		}, 0);
+// 	} 
+
+// 	this.then = function(onFulfilled, onRejected) {
+// 		var self = this;
+// 		return new Promise(function(resolve, reject) {
+// 			return self.done(function (result) {
+// 				if (typeof onFulfilled === 'function') {
+// 					try {
+// 						return resolve(onFulfilled(result));
+// 					}
+// 					catch (ex) {
+// 						return reject(ex);
+// 					}
+// 				}
+// 				else {
+// 					return resolve(result);
+// 				}
+// 			}, function(error) {
+// 				if (typeof onRejected === 'function') {
+// 					try {
+// 						return resolve(onRejected(error));
+// 					}
+// 					catch (ex) {
+// 						return reject(ex);
+// 					}
+// 				}
+// 				else {
+// 					return reject(error);
+// 				}
+// 			});
+// 		});
+// 	}
+
+// 	doResolve(fn, resolve, reject);
+// }
+
+// function getThen(value) {
+// 	var t = typeof value;
+// 	if (value && (t === 'object' || t === 'function')) {
+// 		var then = value.then;
+// 		if (typeof then === 'function') {
+// 			return then;
+// 		}
+// 	}
+// 	return null;
+// }
+// /**
+//  * Take a potentially misbehaving resolver function and make sure
+//  * onFulfilled and onRejected are only called once.
+//  *
+//  * Makes no guarantees about asynchrony.
+//  *
+//  * @param {Function} fn A resolver function that may not be trusted
+//  * @param {Function} onFulfilled
+//  * @param {Function} onRejected
+//  */
+// function doResolve(fn, onFulfilled, onRejected) {
+// 	var done = false;
+// 	try {
+// 		fn(function(value) {
+// 			if (done)
+// 				return
+// 			done = true
+// 			onFulfilled(value)
+// 		}, function(reason) {
+// 			if (done) return
+// 				done = true
+// 			onRejected(reason)
+// 		})
+// 	}
+// 	catch (ex) {
+// 		if (done)
+// 			return
+// 		done = true
+// 		onRejected(ex)
+// 	}
+// }
+
+/// end of hacky-polyfill
+//////////////////////////////////////////////
+
+
+// ////////////////////////// Example 1
+// function dieToss() {
+//   return Math.floor(Math.random() * 6) + 1;
+// }
+
+// console.log('1');
+
+// var dice = new Promise(
+// 	function(success, failure) {
+//   var n = dieToss();
+//   if (n === 6) {
+//     success(n);
+//   } else {
+//     failure(n);
+//   }
+//   console.log('2');
+// });
+
+// dice.then(function(toss) {
+// 	console.log('Radical, threw a ' + toss + 'on the first try.');  
+// }, function(toss) {
+//   console.log('Damnit, just threw a ' + toss);  
+// });
+
+// console.log('3');
+
+//////////////////////////////// Example 2
+// function dieToss() {
+//   return Math.floor(Math.random() * 6) + 1;  
+// }
+
+// function tossASix() {
+//   return new Promise(function(success, failure) {
+//     var n = Math.floor(Math.random() * 6) + 1;
+//     if (n === 6) {
+//       success(n);
+//     } else {
+//       failure(n);
+//     }
+//   });
+// }
+
+// function logAndTossAgain(toss) {
+//   console.log("Tossed a " + toss + ", you lose. Try again.");
+//   return tossASix();
+// }
+
+// function logSuccess(toss) {
+//   console.log("Righteous, managed to toss a " + toss + ".");
+// }
+
+// function logFailure(toss) {
+//   console.log("Tossed a " + toss + ". Too bad, couldn't roll a six");
+// }
+
+// tossASix()
+//   .then(null, logAndTossAgain)   //Roll first time
+//   .then(null, logAndTossAgain)   //Roll second time
+//   .then(logSuccess, logFailure); //Roll third and last time
+
+// //////////////////////////Example 3
+// var tossTable = {
+// 	1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six'
+// };
+
+// function toss() {
+// 	return new Promise(function(success, failure) {
+// 		var n = Math.floor(Math.random() * 6) + 1;
+// 		success(n);
+// 	});
+// }
+
+// function logAndTossAgain(result) {
+// 	var tossWord = tossTable[result];
+// 	console.log("Tossed a " + tossWord.toUpperCase() + ".");
+// 	return toss();
+// }
+
+// function logErrorMessage(error) {
+// 	console.log('damnit')
+// }
+
+// toss()
+// 	.then(logAndTossAgain)
+// 	.then(logAndTossAgain)
+// 	.then(logAndTossAgain)
+// 	.then(null, logErrorMessage);
+
+// function toss() {
+// 	return new Promise(function(success, failure) {
+// 		var n = Math.floor(Math.random() * 6) + 1;
+// 		success(n);
+// 	}); // [1]
+// }
+
+// function threeDice() {
+// 	var tosses = [];
+
+// 	function add(x, y) {
+// 		return x + y;
+// 	}
+	
+// 	for (var i = 0; i < 3; i++) {
+// 		tosses.push(toss());
+// 	} 
+
+// 	return Promise.all(tosses)
+// 		.then(function(results) { 
+// 			return results.reduce(add);
+// 		}
+// 	);
+// }	
+
+// function logResults(result) {
+// 	console.log('Rolled: ' + result + ' with three dice');
+// }
+
+// function logErrorMessage(error) {
+//   console.log("damnit: " + error.message);
+// }
+
+// threeDice()
+// 	.then(logResults)
+// 	.then(null, logErrorMessage);
+
+var coinToss = function() {
+  return new Promise(function(success, failure) {
+    var coin = (Math.floor(Math.random() * 10) + 1) > 5 ? 'heads' : 'tails';
+    if (coin === 'heads') {
+      success(coin);
+    } else {
+     	failure(coin);
+    }
+	});
+}
+
+function punchAir(coin) {
+	console.log(coin + ' -- pump fist');
+}
+
+function stompFloor(coin) {
+	console.log(coin + ' -- stamp feet');
+}
+
+coinToss()
+	.then(punchAir, stompFloor);
+
+
+
+</script>
+</body>
+</html>

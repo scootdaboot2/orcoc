@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="firecesium/ol.css" type="text/css"></link>
+<link rel="stylesheet" type="text/css" href="firecesium/examples/styles.css">
+<!-- <link rel="stylesheet" type="text/css" href="firecesium/examples/popup/src/ol3-popup.css"> -->
+</head>
+<body>
+
+<div class="card" id="firemap" style="text-align: center">
+  <h1 class="level3" style="color: rgba(187,215,214,1);text-shadow: #364230 1px 1px 1px;">Great Basin Fire Activity</h1>
+  <div id="resources" class="resources">
+    <strong class="nowrap">0 Airtankers</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Dozers</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Engines</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Crews</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Fixed-Wing</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 IMTs</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Helicopters</strong>
+    <p class="nowrap"></p>
+  </div> 
+  <div id="map2d" class="map2d">
+  	<!-- <div class="nosupport">Your browser doesn't seem to support this application.<br>Please, update it.</div> -->
+  </div>
+  <div id="legend">
+  <div style="display: inline">
+    <svg width="500" height="80">
+      <circle cx="30" cy="15" r="7"
+        fill="rgba(221,48,3, .95)" 
+        stroke="rgba(221,48,3, 1)" stroke-width="3"
+        opacity="1"/>
+      <text x="0" y="40" fill="rgba(187, 215, 214, 1)">New Fires
+        <tspan x="0" y="55">Initial Attack</tspan>
+        <tspan x="0" y="70">Age < 30 hrs</tspan>
+      </text> 
+      <circle cx="145" cy="15" r="7"
+        fill="rgba(254,253,6, 0.9)" 
+        stroke="rgba(254,253,6, 1)" stroke-width="3"
+        opacity='1'/>
+      <text x="115" y="40" fill="rgba(187, 215, 214, 1)">Ongoing Fires
+        <tspan x="115" y="55">Age < 10 days &amp;</tspan>
+        <tspan x="115" y="70">Updated < 5 days</tspan>
+      </text> 
+      <circle cx="260" cy="15" r="7"
+        fill="rgba(253,2,125, 0.9)" 
+        stroke="rgba(255, 0, 128, 1)" stroke-width="3"
+        opacity="1"/>
+      <text x="230" y="40" fill="rgba(187, 215, 214, 1)">Prescribed Fires
+        <tspan x="230" y="55">Age < 10 days &amp;</tspan>
+        <tspan x="230" y="70">Updated < 5 days</tspan>
+      </text> 
+      <rect x='390' y='7' width='14' height='14'
+        fill="rgba(1,243,255,1)" 
+        stroke="rgba(1,255,67,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="360" y="40" fill="rgba(187, 215, 214, 1)">Fire Perimeters
+        <tspan x="360" y="55">GeoMAC</tspan>
+      </text> 
+    </svg>
+    <button style="float: right" id="toggle" class="btn btn-1 btn-1c">3D VIEW</button>
+    <svg width="600" height="40">
+      <rect x='36' y='0' width='18' height='18' rx='2' ry='2'
+        fill="#bbd7d6" 
+        stroke="#bbd7d6" stroke-width="3"
+        opacity="1"/>    
+      <circle cx="40" cy="14" r="2"
+        fill="rgba(168,0,0,1)" 
+        stroke="rgba(168,0,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="45" cy="5" r="2"
+        fill="rgba(168,0,0,1)" 
+        stroke="rgba(168,0,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="50" cy="14" r="2"
+        fill="rgba(168,0,0,1)" 
+        stroke="rgba(168,0,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="0" y="35" fill="rgba(187, 215, 214, 1)">MODIS < 6 hrs</text>
+      <circle cx="155" cy="14" r="2"
+        fill="rgba(230,77,0,1)" 
+        stroke="rgba(230,77,0,1)" stroke-width="3"
+        opacity="1"/> 
+      <circle cx="160" cy="5" r="2"
+        fill="rgba(230,77,0,1)" 
+        stroke="rgba(230,77,0,1)" stroke-width="3"
+        opacity='1'/>
+      <circle cx="165" cy="14" r="2"
+        fill="rgba(230,77,0,1)" 
+        stroke="rgba(230,77,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="115" y="35" fill="rgba(187, 215, 214, 1)">MODIS < 12 hrs</text>
+      <circle cx="270" cy="14" r="2"
+        fill="rgba(255,85,0,1)" 
+        stroke="rgba(255,85,0,1)" stroke-width="3"
+        opacity="1"/>  
+      <circle cx="275" cy="5" r="2"
+        fill="rgba(255,85,0,1)" 
+        stroke="rgba(255,85,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="280" cy="14" r="2"
+        fill="rgba(255,85,0,1)" 
+        stroke="rgba(255,85,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="230" y="35" fill="rgba(187, 215, 214, 1)">MODIS < 24 hrs</text>
+      <circle cx="385" cy="14" r="2"
+        fill="rgba(255,169,0,1)" 
+        stroke="rgba(255,169,0,1)" stroke-width="3"
+        opacity="1"/>  
+      <circle cx="390" cy="5" r="2"
+        fill="rgba(255,169,0,1)" 
+        stroke="rgba(255,169,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="395" cy="14" r="2"
+        fill="rgba(255,169,0,1)" 
+        stroke="rgba(255,169,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="345" y="35" fill="rgba(187, 215, 214, 1)">MODIS < 48 hrs</text>
+      <circle cx="500" cy="14" r="2"
+        fill="rgba(255,255,0,1)" 
+        stroke="rgba(255,255,0,1)" stroke-width="3"
+        opacity="1"/>  
+      <circle cx="505" cy="5" r="2"
+        fill="rgba(255,255,0,1)" 
+        stroke="rgba(255,255,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="510" cy="14" r="2"
+        fill="rgba(255,255,0,1)" 
+        stroke="rgba(255,255,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="460" y="35" fill="rgba(187, 215, 214, 1)">MODIS > 48 hrs</text> 
+    </svg>
+    </div>
+    <p id='slide'>Pull Slider Left to View Sage-Grouse Habitat Layer</p>
+    <input id="swipe" value='100' type="range">
+  </div>
+  <!-- <div id="info" class="alert-fire">
+    <strong>Incident ID: </strong><span id="uniqueFireIdentifier"></span><br>
+    <strong>Incident Name: </strong><span id="incidentName"></span><br>
+    <strong>Fire Discovery Date/Time: </strong><span id='fireDiscoveryDateTime'></span><br>
+    <strong>Acreage:</strong><span id="dailyAcres"></span><br>
+    <strong>Strategy: </strong><span id='strategy'></span><br>
+    <strong>Dispatch Center ID: </strong><span id='dispatchCenterID'></span><br>
+    <strong>Fire Cause: </strong><span id='fireCause'></span><br>
+    <strong>Fuel Type: </strong><span id="fuelType"></span><br>
+    <strong>Incident Commander: </strong><span id="incidentCommanderName"></span><br>
+    <strong>Lat / Long: </strong><span id='latLong'></span><br>
+    <strong>Agency: </strong><span id="ownership"></span><br>
+    <strong>Predictive Services Area ID: </strong><span id='predictiveServiceAreaID'></span> 
+  </div> -->
+  <p>Updated every 15 minutes</p>
+  <div id="map3d" class="dontsee"></div>
+  <!-- <div class="notification-bar">
+  	<div id="messageBar" class="message-bar"></div>
+  	<div id="coordinates"></div>
+ 	</div> -->
+  <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+    <a href='' id="zoom-to"></a>
+  </div>
+</div>
+
+<?php 
+  $IRWIN1 = 'gbccfiredata';
+  $IRWIN2 = 'KFyHQ2RAdxWa';
+  $EGP1 = 'kara.stringer';
+  $EGP2 = 'MyMi55ymoMa!';
+  echo '<script>';
+  echo 'var IRWIN1 = ' . json_encode($IRWIN1) . ';';
+  echo 'var IRWIN2 = ' . json_encode($IRWIN2) . ';';
+  echo 'var EGP1 = ' . json_encode($EGP1) . ';';
+  echo 'var EGP2 = ' . json_encode($EGP2) . ';';
+  echo '</script>';
+?>
+
+<!-- <div class="card">
+<table id="info" class="alert">
+    <tbody>
+      <tr class="">
+        <td class=""><strong>Incident Name:</strong></td>
+        <td class=""><span id="incidentName"></span></td>
+        <td class=""><strong>Incident ID:</strong></td>
+        <td class=""><span id="uniqueFireIdentifier"></span></td>
+      </tr>
+      <tr class="">
+        <td class=""><strong>Fire Discovery Date/Time:</strong></td>
+        <td class=""><span id='fireDiscoveryDateTime'></span></td>
+        <td class=""><strong>Acreage:</strong></td>
+        <td class=""><span id="dailyAcres"></span></td>
+      </tr>    
+      <tr class="">
+        <td class=""><strong> Strategy:</strong></td>
+        <td class=""><span id='strategy'></span></td>
+        <td class=""><strong>Dispatch Center ID:</strong></td>
+        <td class=""><span id='dispatchCenterID'></span></td>
+      </tr>
+      <tr class="">
+        <td class=""><strong>Fire Cause:</strong></td>
+        <td class=""><span id='fireCause'></span></td>
+        <td class=""><strong>Fuel Type:</strong></td>
+        <td class=""><span id="fuelType"></span></td>
+      </tr>    
+      <tr class="">
+        <td class=""><strong>Incident Commander:</strong></td>
+        <td class=""><span id="incidentCommanderName"></span></td>
+        <td class=""><strong>Lat / Long:</strong></td>
+        <td class=""><span id='latLong'></span></td>
+      </tr>    
+      <tr class="">
+        <td class=""><strong>Agency:</strong></td>
+        <td class=""><span id="ownership"></span></td>
+        <td class=""><strong>Predictive Services Area ID:</strong></td>
+        <td class=""><span id='predictiveServiceAreaID'></span></td>
+      </tr> 
+      <tr class="">
+        <td class=""><strong>Origin in Sagegrouse Habitat:</strong></td>
+        <td class=""><span id="sagegrouseOrigin"></span></td>
+        <td class=""><strong></strong></td>
+        <td class=""><span id=''></span></td>
+      </tr>    
+    </tbody>
+  </table> 
+</div> -->
+
+
+
+
+    <!-- <button id="rotateLeft" title="Rotate clockwise">↻</button>
+    <button id="rotateRight" title="Rotate counterclockwise">↺</button>
+    <input type="button" value="setHeading(0)" onclick="javascript:camera.setHeading(0)" />
+    <input type="button" value="setHeading(Math.PI / 2)" onclick="javascript:camera.setHeading(Math.PI / 2)" />
+    <input type="button" value="setHeading(Math.PI)" onclick="javascript:camera.setHeading(Math.PI)" />
+    <input type="button" value="setHeading((3 / 2) * Math.PI)" onclick="javascript:camera.setHeading((3 / 2) * Math.PI)" />  -->
+
+  <!-- <script src="http://openlayers.org/en/v3.15.1/examples/resources/mapbox-streets-v6-style.js"></script> -->
+  <script src="firecesium/examples/inject_ol3_cesium.js"></script>
+  <!-- <script type="text/javascript" src='selection2.js'></script> -->
+  <script src="firecesium/examples/refactor.js" async></script>
+</body>
+</html>

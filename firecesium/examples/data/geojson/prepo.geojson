@@ -1,0 +1,215 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.8641,
+          40.5252          
+        ]
+      },
+      "properties": {
+        "name": "2016 NUC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.0494,
+          43.5006
+        ]
+      },
+      "properties": {
+        "name": "2016 EIC GBCC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.4064,
+          42.9348
+        ]
+      },
+      "properties": {
+        "name": "2016 SCC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.5337,
+          40.4508
+        ]
+      },
+      "properties": {
+        "name": "2016 UBC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -115.7958,
+          40.8226
+        ]
+      },
+      "properties": {
+        "name": "2016 NV-EIC GBCC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.8753,
+          39.2425
+        ]
+      },
+      "properties": {
+        "name": "2016 ECC GBCC PREPOSITION",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.7443,
+          40.9609
+        ]
+      },
+      "properties": {
+        "name": "2016 CNC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.1910,
+          43.6435
+        ]
+      },
+      "properties": {
+        "name": "2016 BDC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -111.9258,
+          40.4355
+        ]
+      },
+      "properties": {
+        "name": "2016 SALT LAKE CITY MOBILIZATION CENTER",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.0979,
+          44.8971
+        ]
+      },
+      "properties": {
+        "name": "2016 PAC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.0743,
+          37.6811
+        ]
+      },
+      "properties": {
+        "name": "2016 CDC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -109.5613,
+          38.5826
+        ]
+      },
+      "properties": {
+        "name": "2016 MFC PREPO\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.7716,
+          38.9451
+        ]
+      },
+      "properties": {
+        "name": "2016 SFC PREPOSITION\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -112.0985,
+          38.7767          
+        ]
+      },
+      "properties": {
+        "name": "2016 RFC PREPO\/STAGING",
+        "type": "prepo"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -113.9170,
+          45.1585
+        ]
+      },
+      "properties": {
+        "name": "2016 CIC GACC Support",
+        "type": "prepo"
+      }
+    }    
+  ]
+}

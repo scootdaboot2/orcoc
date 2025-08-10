@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Fire Cameras | Nevada Seismological Lab</title>
+
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<link rel="stylesheet" href="contextmenu.css" />
+<style>
+div#context-menu {
+visibility:hidden;
+width:150px;
+line-height:30px;
+position:absolute;
+padding-left:10px;
+border:1px solid black;
+background-color:#EEEEEE;
+}
+
+
+div.main-content {
+margin-left: auto;
+margin-right: auto;
+padding;0px;
+border-width:0px;
+width: 1300px;
+}
+div#thumbnail-block {
+margin:0px;
+padding:5px;
+width:1330px;
+text-align: center;
+}
+div#current-view {
+margin-left:0px;
+padding:5px;
+width:1330px;
+text-align:center;
+}
+div#camera-block {
+margin-left:0px;
+padding:0px;
+width:960px;
+height:540px;
+display:table-cell;
+text-align:center;
+}
+div#map-block {
+padding:0px;
+width:365px;
+display:table-cell;
+text-align:center;
+}
+div#divider {
+padding:0px;
+width:8px;
+display:table-cell;
+text-align:center;
+}
+div.thumbNail {
+color: #ffffff;
+background-color:#000000;
+margin:1px;
+padding:2px;
+text-align:center;
+display:inline-block;
+}
+p.camLabel {
+color:#ffbe00;
+text-align:left;
+margin-top:1px;
+margin-bottom:2px;
+padding-left:5px;
+font-family:Verdana, Geneva, sans-serif;
+}
+</style>
+
+</head>
+<body>
+<div class="main-content">
+<!-- START TOP MASTHEAD BLOCK -->
+<div id="nsl-header" class="nsl-bluebox">
+
+<div id="pagetitle" class="nsl-float-right">
+
+<h1 id="title">BLM Wildland Cameras</h1>
+
+</div>
+<hr class="nsl-hr" style="clear:left">
+
+</div>
+<!-- END TOP MASTHEAD BLOCK -->
+
+<!-- START PAGE CONTENT -->
+<div id="current-view" class="nsl-bluebox">
+	<h2 id="camera-title" class="nsl-boxtitle">BLM Cameras Current View</h2>
+<div id="camera-block"></div>
+<div id="divider"></div>
+<div id="map-block"></div>
+<div id="context-menu"></div>
+</div>
+<div id="thumbnail-block" class="nsl-bluebox">
+<h2 id="thumbnail-title" class="nsl-boxtitle"><A style="text-decoration:none; color:yellow" href="http://alerttahoe.seismo.unr.edu:8080">BLM Camera Sites</A>  |  <A style="text-decoration:none; color:white" href="http://alerttahoe.seismo.unr.edu/firecams.html">Alert Camera Sites</A></h2>
+<!-- Thumbnails are here -->
+</div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="contextmenu.js"></script>
+<script src="leaflet-heat.js"></script>
+<script src="cameras.js"></script>
+<!-- END PAGE CONTENT -->
+
+</div>
+</body>
+</html>
+

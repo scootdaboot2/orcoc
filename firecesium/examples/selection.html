@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index, all" />
+  <title>ol3cesium dispatch selection example</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="../ol.css" type="text/css"></link>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <!-- <link rel="stylesheet" type="text/css" href="popup/src/ol3-popup.css"> -->
+</head>
+<body>
+<!-- <script>
+  var irwin;
+  var egp;
+  var options = 
+  {
+    method: String,
+    url: String,
+    params: String | Object,
+    headers: Object
+  };
+
+  function ajax(options) {
+    return new Promise(function(resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(options.method, options.url);
+      xhr.responseType = '';
+      xhr.onload = function() {
+        if (this.status <= 200 && this.status < 300) {
+          resolve(xhr.response);
+        } 
+        else {
+          reject({
+            status: this.status,
+            statusText: xhr.statusText
+          });
+        }
+      };
+      xhr.onerror = function() {
+        reject({
+          status: this.status,
+          statusText: xhr.statusText
+        });
+      };
+      if (options.headers) {
+        Object.keys(options.headers).forEach(function(key) {
+          xhr.setRequestHeader(key, options.headers[key]);
+        });
+      };
+      var params = options.params;
+      // We'll need to stringify if we've been given an object
+      // If we have a string, this is skipped.
+      if (params && typeof params === 'object') {
+        params = Object.keys(params).map(function (key) {
+          return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+        }).join('&');
+      };
+      xhr.send(params);
+    });
+  }
+
+  var result;
+
+  ajax({
+    method: 'POST',
+    url: 'https://irwin.doi.gov/arcgis/tokens/generateToken',
+    params: {
+      f: 'json',
+      username: 'gbccfiredata',
+      password: 'KFyHQ2RAdxWa',
+      client: 'referer',
+      referer: 'http://gacc.nifc.gov/gbcc/',
+      expiration: '60'
+    },
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+  .then(function(firstValue) {
+   irwin = JSON.parse(firstValue).token;
+  })
+  // .then(function(secondValue) {
+  //   document.getElementById('').innerHTML = '' + secondValue + '';
+  // })
+  .catch(function(error) {
+    console.error('damnit.', error.statusText);
+  });
+</script>   --> 
+<table id="info" class="alert">
+  <tbody>
+    <tr class="">
+      <td class=""><strong>Incident Name:</strong></td>
+      <td class=""><span id="incidentName"></span></td>
+      <td class=""><strong>Incident ID:</strong></td>
+      <td class=""><span id="uniqueFireIdentifier"></span></td>
+    </tr>
+    <tr class="">
+      <td class=""><strong>Fire Discovery Date/Time:</strong></td>
+      <td class=""><span id='fireDiscoveryDateTime'></span></td>
+      <td class=""><strong>Acreage:/strong></td>
+      <td class=""><span id="dailyAcres"></span></td>
+    </tr>    
+    <tr class="">
+      <td class=""><strong> Strategy:</strong></td>
+      <td class=""><span id='strategy'></span></td>
+      <td class=""><strong>Dispatch Center ID:</strong></td>
+      <td class=""><span id='dispatchCenterID'></span></td>
+    </tr>
+    <tr class="">
+      <td class=""><strong>Fire Cause:</strong></td>
+      <td class=""><span id='fireCause'></span></td>
+      <td class=""><strong>Fuel Type:</strong></td>
+      <td class=""><span id="fuelType"></span></td>
+    </tr>    
+    <tr class="">
+      <td class=""><strong>Incident Commander:</strong></td>
+      <td class=""><span id="incidentCommanderName"></span></td>
+      <td class=""><strong>Lat / Long:</strong></td>
+      <td class=""><span id='latLong'></span></td>
+    </tr>    
+    <tr class="">
+      <td class=""><strong>Agency:</strong></td>
+      <td class=""><span id="ownership"></span></td>
+      <td class=""><strong>Predictive Services Area ID:</strong></td>
+      <td class=""><span id='predictiveServiceAreaID'></span></td>
+    </tr>                  
+  </tbody>
+</table>
+<div class='map-container'> 
+  <div id="toolbar" class="toolbar"></div>
+    <div id="map2d" class="map" style="width:600px;height:400px;float:left;position:relative;">
+      <div class="nosupport">Your browser doesn't seem to support this application.<br>Please, update it.</div>
+    </div>
+  <div class="notification-bar">
+    <div id="messageBar" class="message-bar"></div>
+    <div id="coordinates"></div>
+  </div>
+</div>
+<div id="map3d" style="width:600px;height:400px;float:left;position:relative;"></div>
+
+<!--  <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content">
+      <strong>Incident ID: </strong><span id="uniqueFireIdentifier"></span><br>
+      <strong>Incident Name: </strong><span id="incidentName"></span><br>
+      <strong>Fire Discovery Date/Time: </strong><span id='fireDiscoveryDateTime'></span><br>
+      <strong></strong><span id="dailyAcres"></span><br>
+      <strong>Strategy: </strong><span id='strategy'></span><br>
+      <strong>Dispatch Center ID: </strong><span id='dispatchCenterID'></span><br>
+      <strong>Fire Cause: </strong><span id='fireCause'></span><br>
+      <strong>Fuel Type: </strong><span id="fuelType"></span><br>
+      <strong>Incident Commander: </strong><span id="incidentCommanderName"></span><br>
+      <strong>Lat / Long: </strong><span id='latLong'></span><br>
+      <strong>Agency: </strong><span id="ownership"></span><br>
+      <strong>Predictive Services Area ID: </strong><span id='predictiveServiceAreaID'></span>   
+    </div>
+    <a href='' id="zoom-to">
+   </div> -->
+
+<!--     <div id="info" class="alert-fire alert">
+      <strong>Incident ID: </strong><span id="uniqueFireIdentifier"></span><br>
+      <strong>Incident Name: </strong><span id="incidentName"></span><br>
+      <strong>Fire Discovery Date/Time: </strong><span id='fireDiscoveryDateTime'></span><br>
+      <strong>Acreage:</strong><span id="dailyAcres"></span><br>
+      <strong>Strategy: </strong><span id='strategy'></span><br>
+      <strong>Dispatch Center ID: </strong><span id='dispatchCenterID'></span><br>
+      <strong>Fire Cause: </strong><span id='fireCause'></span><br>
+      <strong>Fuel Type: </strong><span id="fuelType"></span><br>
+      <strong>Incident Commander: </strong><span id="incidentCommanderName"></span><br>
+      <strong>Lat / Long: </strong><span id='latLong'></span><br>
+      <strong>Agency: </strong><span id="ownership"></span><br>
+      <strong>Predictive Services Area ID: </strong><span id='predictiveServiceAreaID'></span> 
+    </div> -->
+  <input id="enable-disable" type="button" value="Enable/disable Cesium" onclick="javascript:ol3d.setEnabled(!ol3d.getEnabled())" />
+  <!-- <div>A local dispatch area can be highlighted by clicking it on the 2d ol3 map.
+    <br/>It gets automatically selected in Cesium.
+    <br/>If you see flickering in Cesium, please check your graphic card drivers.</div> -->
+    <!-- <button id="rotateLeft" title="Rotate clockwise">↻</button>
+    <button id="rotateRight" title="Rotate counterclockwise">↺</button>
+    <input type="button" value="setHeading(0)" onclick="javascript:camera.setHeading(0)" />
+    <input type="button" value="setHeading(Math.PI / 2)" onclick="javascript:camera.setHeading(Math.PI / 2)" />
+    <input type="button" value="setHeading(Math.PI)" onclick="javascript:camera.setHeading(Math.PI)" />
+    <input type="button" value="setHeading((3 / 2) * Math.PI)" onclick="javascript:camera.setHeading((3 / 2) * Math.PI)" />  -->
+
+  <script src="http://openlayers.org/en/v3.15.1/examples/resources/mapbox-streets-v6-style.js"></script>
+  <script src="inject_ol3_cesium.js"></script>
+  <!-- <script type="text/javascript" src="es6-promise-min.js"></script> -->
+  <!-- <script type="text/javascript" src="fetch.js"></script> -->
+  <!-- <script type="text/javascript" src='selection2.js'></script> -->
+  <!-- <script src="fireDataLayers.js" async></script> -->
+  <!-- <script src="popup/src/ol3-popup.js" async></script> -->
+  <script src="selection.js" defer></script>
+</body>
+</html>
+

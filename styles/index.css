@@ -1,0 +1,508 @@
+/**
+ * Place your custom styles here. #cf713b
+ */
+.tab_on {
+    text-decoration: none;
+    background-color: #2f2d2e;
+    font-weight: bold;
+    color: #dfd7c9;
+}
+
+.tab_off {
+    text-decoration: none;
+    background-color: #dfd7c9;
+    font-weight: bold;
+    color: #555555;
+}
+
+body {
+    font-family: Montserrat;
+}
+
+.nav > li > .tabmenu {
+/*
+    border-left: 15px solid #9d9a95;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-left: 5px solid;
+    position: relative;
+    z-index: 2;
+    text-decoration: none;
+    color: #345631;
+    font-weight: bold;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;*/
+
+}
+
+
+
+.nav > li > a:hover, .nav > li > a:focus, .nav > li > a:active {
+    text-decoration: none;
+    background-color: #2f2d2e;
+    font-weight: bold;
+    color: #dfd7c9;
+}
+
+.dead {
+  text-decoration: line-through; 
+  text-decoration-color: black;
+  text-decoration-thickness: 2px;
+}
+
+
+.linkup {
+  float: none; 
+  clear: both;
+  width: 70%; 
+/*  margin: 5% auto;*/
+/*  background-color: #ddb762;*/
+  background-color: #dfd7c9;
+/*  background-color: #f8e4ba;*/
+  line-height: 1rem;
+}
+
+.linkup ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.linkup li {
+/*  border-top:10px solid #8c9949;*/
+  float: none; 
+  width: 100%;
+}
+
+.linkup li a {
+  display: block; 
+  width: 100%; 
+  padding: 10px; 
+  border-left: 5px solid; 
+  position: relative; 
+  z-index: 2;
+  text-decoration: none;
+/*  color: #4e6c7e;*/
+  color: #345631;
+  font-weight: bold;
+  box-sizing: border-box;  
+  -moz-box-sizing: border-box;  
+  -webkit-box-sizing: border-box; 
+}
+  
+.linkup li a:hover { border-bottom: 0px; color: #ffffff;}
+/*.linkup li:nth-child(odd) a { border-left: 15px solid #9f9b91; }*/
+/*.linkup li:nth-child(even) a { border-left: 15px solid #cc4c1f; }*/
+.linkup li:nth-child(odd) a { border-left: 15px solid #9d9a95; }
+.linkup li:nth-child(even) a { border-left: 15px solid #2f2d2e; }
+
+.linkup li a:after {  
+  content: "";
+  height: 100%; 
+  left: 0; 
+  top: 0; 
+  width: 0px;  
+  position: absolute; 
+  transition: all 0.2s ease 0s; 
+  -webkit-transition: all 0.2s ease 0s; 
+  z-index: -1;
+}
+
+.linkup li a:hover:after { width: 100%; }
+.linkup li:nth-child(odd) a:after { background: #89713b; }
+.linkup li:nth-child(even) a:after { background: #cc4c1f; }
+
+.linkup li a:hover:after { 
+  color: black;
+  width: 100%; 
+  font
+}
+/*.linkup li:nth-child(odd) a:after { 
+  background-image: linear-gradient(to right, #9f9b91, #8c9949);
+}
+.linkup li:nth-child(even) a:after { 
+  background-image: linear-gradient(to right, #cc4c1f, #8c9949);
+}*/
+.linkup li:nth-child(odd) a:after { 
+  background-image: linear-gradient(to right, #9d9a95, #f5e2ad);
+}
+.linkup li:nth-child(even) a:after { 
+  background-image: linear-gradient(to right, #2f2d2e, #f5e2ad);
+}
+
+
+.card {
+  margin: 20px auto;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-color: #9d9a95;
+  background-color: #2f2d2e;
+  border: 1px solid #9d9a95;
+  border-width: 0 1px 4px 1px;
+}
+
+.card .card_image {
+  padding: 10px;
+  text-align: center;
+}
+
+.card .card_title {
+  padding-bottom: 30px;
+  text-align: center;
+  border-radius: 0px 0px 5px 5px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  height: 20px;
+  color: #dfd7c9;
+}
+
+@font-face {
+  font-family: nps;
+  src: url("../fonts/NPS_1935.ttf");
+}
+
+body {
+    background-color: #c9c7c8;
+/*    background-color: #d8ba83;  #667f63 */
+/*  background-color:#f5e2ad;*/
+/*  background-color:  #667f63;*/
+}
+
+.alert, .alert-warning {
+  color: #dfd7c9;
+  background-color: #2f2d2e;
+  border-color: #9d9a95;    
+}
+
+.panel {
+  border: 1px solid #9d9a95;;
+  background-color: #dfd7c9;       
+}
+
+.panel-heading {
+  color: #dfd7c9 !important;
+  background-color: #2f2d2e !important;
+  border-color: #9d9a95 !important;
+}
+
+#map {
+  width: 100%;
+  max-height: 50vw;
+}
+
+.page-header {
+  border-bottom: 1px solid #2f4e2c;
+}
+
+span.Active a {
+  color: red;
+}
+
+table {
+  background-color: #75a2c1;  
+}
+
+h2, h3 {
+  font-weight: bold;
+  color: #2f2d2e;
+}
+
+.footer {
+  text-align: center;
+  background-color: #dfd7c9;
+  color: #345631;
+  border-top: 2px solid #345631;
+}
+
+.footer a {
+  color: #2f4e2c;
+}
+
+.dockmenu li {
+  display: inline-block;
+  list-style-type: none;
+  color: #e3c381;
+}
+
+.dispatchinfoheader {
+  height: 250px;
+  padding: 0;
+  margin: 0;
+  margin-top: -15px;
+  background-color: #e9e4da;
+  background-image: 
+/*  linear-gradient(to right, rgba(168,72,13,0) 650px, rgba(168,72,13,.1), rgba(168,72,13,1) 670px),*/
+      url(../images/cc_extended.png);
+  background-position: top left;
+  background-repeat: no-repeat;
+/*  background-size: auto;*/
+}
+.dispatchinfoheader .firedangerlevel img {
+    padding: 5px;
+}
+.dispatchinfoheader h1#siteheader{
+    font-family: nps;
+    font-size:28px;
+    margin-top: 125px;
+    margin-left: 20px;
+}
+@media only screen and (max-width : 480px) {
+    .dispatchinfoheader h1#siteheader{
+        font-size: 26px;
+        text-align: center;
+    }
+}
+
+.dispatchinfoheader #siteheader a,
+.dispatchinfoheader #siteheader a:link,
+.dispatchinfoheader #siteheader a:hover,
+.dispatchinfoheader #siteheader a:visited {
+    text-shadow: -3px 3px 3px #121911, -3px -2px 3px #121911, 3px -1px 2px #121911, 3px 3px 3px #121911;
+/*    font-weight: bolder;*/
+    color: #dfd7c9;
+    text-indent: .5em;
+    text-decoration: none;
+    line-height: normal;
+}
+.navbar{
+    border-radius: 0;
+}
+/*yes! that was easy: https://work.smarchal.com/twbscolor/*/
+.navbar-brand{
+    border-radius: 0;
+}
+.navbar-default {
+    background-color:  #dfd7c9;
+    border-color: #2f2d2e;
+/*    border-top-color: #ffd486;*/
+    border-width: 3px 1px 4px 1px;
+}
+
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-text {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-nav>li>a {
+/*    color: #ffffff;*/
+    color: #2f2d2e;
+    font-weight: bolder;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    color: #236ca5;
+    text-decoration: underline;
+}
+
+.navbar-default .navbar-nav>li>.dropdown-menu {
+    background-color: #75a2c1;
+}
+
+.navbar-default .navbar-nav>li>.dropdown-menu>li>a {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-nav>li>.dropdown-menu>li>a:hover,
+.navbar-default .navbar-nav>li>.dropdown-menu>li>a:focus {
+    color: #ffffff;
+    background-color: #236ca5;
+}
+
+.navbar-default .navbar-nav>li>.dropdown-menu>li.divider {
+    background-color: #236ca5;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
+    color: #ffffff;
+    background-color: #236ca5;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #ffffff;
+    background-color: #236ca5;
+}
+
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus {
+    color: #ffffff;
+    background-color: #236ca5;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #236ca5;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #236ca5;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ffffff;
+}
+
+.navbar-default .navbar-link {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-link:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus {
+        color: #ffffff;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>.active>a,
+    .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus {
+        color: #ffffff;
+        background-color: #75a2c1;
+    }
+}
+
+.dispatchblue .region-sidebar-first {
+    background: #2f2d2e;
+    padding: 15px;
+    color: #ffc8a2;
+    border-radius: 5px;
+}
+
+.dispatchblue h3 {
+    color: #dfd7c9;
+    border-bottom: 1px solid #dfd7c9;
+}
+
+.dispatchblue .region-sidebar-first .views-field-title a {
+    color: #dfd7c9;
+    margin-left:15px;
+    font-weight:bold;
+    
+}
+/*move the icon for the popup over a little*/
+.block-views-blockdispatch-content-block-3 img.leaflet-marker-icon {
+    left: -22px;
+}
+
+.view-display-id-block_4 table th:first-child, .view-display-id-block_wildland_fire table th:first-child {
+    width: 10%;
+}
+
+/**
+ * @file
+ * Utility classes to hide elements in different ways.
+ */
+
+/**
+ * Hide elements from all users.
+ *
+ * Used for elements which should not be immediately displayed to any user. An
+ * example would be collapsible details that will be expanded with a click
+ * from a user. The effect of this class can be toggled with the jQuery show()
+ * and hide() functions.
+ */
+.hidden {
+  display: none;
+}
+
+/**
+ * Hide elements visually, but keep them available for screen readers.
+ *
+ * Used for information required for screen reader users to understand and use
+ * the site where visual display is undesirable. Information provided in this
+ * manner should be kept concise, to avoid unnecessary burden on the user.
+ * "!important" is used to prevent unintentional overrides.
+ */
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+
+/**
+ * The .focusable class extends the .visually-hidden class to allow
+ * the element to be focusable when navigated to via the keyboard.
+ */
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  position: static !important;
+  overflow: visible;
+  clip: auto;
+  width: auto;
+  height: auto;
+}
+
+/**
+ * Hide visually and from screen readers, but maintain layout.
+ */
+.invisible {
+  visibility: hidden;
+}
+
+/**
+ * @file
+ * Alignment classes for text and block level elements.
+ */
+
+.text-align-left {
+  text-align: left;
+}
+.text-align-right {
+  text-align: right;
+}
+.text-align-center {
+  text-align: center;
+}
+.text-align-justify {
+  text-align: justify;
+}
+
+/**
+ * Alignment classes for block level elements (images, videos, blockquotes, etc.)
+ */
+.align-left {
+  float: left;
+}
+.align-right {
+  float: right;
+}
+.align-center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.region-smokey {
+  margin-top: 50px;
+  margin-right: 24px;
+}

@@ -1,0 +1,577 @@
+
+
+<div class="card" id="firemap" style="text-align: center">
+  <h1 class="level3" style="color: rgba(187,215,214,1);text-shadow: #364230 1px 1px 1px;">Fire Activity Map</h1>
+<!--   <div id="resources" class="resources">
+    <a href="#" id="resources-closer" class="">✖</a>
+    <br>
+    <br>
+    <strong class="nowrap">0 Airtankers</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Dozers</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Engines</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Crews</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Fixed-Wing</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 IMTs</strong>
+    <p class="nowrap"></p>
+    <strong class="nowrap">0 Helicopters</strong>
+    <p class="nowrap"></p>
+  </div>  -->
+  <div id="fullscreen">
+    <div id="map2d">
+      <!-- <div id="webcam"></div> -->
+    </div>
+    <div id='sidepanel'>
+      <div id="fs-title">
+        <!-- <img id='logo' src="firecesium/examples/data/GBCC_1a.png"> -->
+      </div>
+      <div id='side1'></div>
+    </div>
+  </div>
+<!--   <div id="legend">
+  <div style="display: inline">
+    <svg width="500" height="80">
+      <circle cx="30" cy="15" r="7"
+        fill="rgba(221,48,3, .95)" 
+        stroke="rgba(221,48,3, 1)" stroke-width="3"
+        opacity="1"/>
+      <text x="0" y="40" fill="rgba(187, 215, 214, 1)">New Fires
+        <tspan x="0" y="55">Initial Attack</tspan>
+        <tspan x="0" y="70">Age < 30 hrs</tspan>
+      </text> 
+      <circle cx="145" cy="15" r="7"
+        fill="rgba(254,253,6, 0.9)" 
+        stroke="rgba(254,253,6, 1)" stroke-width="3"
+        opacity='1'/>
+      <text x="115" y="40" fill="rgba(187, 215, 214, 1)">Ongoing Fires
+        <tspan x="115" y="55">Age < 10 days &amp;</tspan>
+        <tspan x="115" y="70">Updated < 5 days</tspan>
+      </text> 
+      <circle cx="260" cy="15" r="7"
+        fill="rgba(253,2,125, 0.9)" 
+        stroke="rgba(255, 0, 128, 1)" stroke-width="3"
+        opacity="1"/>
+      <text x="230" y="40" fill="rgba(187, 215, 214, 1)">Prescribed Fires
+        <tspan x="230" y="55">Age < 10 days &amp;</tspan>
+        <tspan x="230" y="70">Updated < 5 days</tspan>
+      </text> 
+      <rect x='390' y='7' width='14' height='14'
+        fill="rgba(1,243,255,1)" 
+        stroke="rgba(1,255,67,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="360" y="40" fill="rgba(187, 215, 214, 1)">Fire Perimeters
+        <tspan x="360" y="55">GeoMAC</tspan>
+      </text> 
+    </svg>
+    <button style="float: right" id="toggle" class="btn btn-1 btn-1c">3D VIEW</button>
+    <svg width="600" height="40">
+      <rect x='36' y='0' width='18' height='18' rx='2' ry='2'
+        fill="#bbd7d6" 
+        stroke="#bbd7d6" stroke-width="3"
+        opacity="1"/>    
+      <circle cx="40" cy="14" r="2"
+        fill="rgba(168,0,0,1)" 
+        stroke="rgba(168,0,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="45" cy="5" r="2"
+        fill="rgba(168,0,0,1)" 
+        stroke="rgba(168,0,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="50" cy="14" r="2"
+        fill="rgba(168,0,0,1)" 
+        stroke="rgba(168,0,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="0" y="35" fill="rgba(187, 215, 214, 1)">MODIS < 6 hrs</text>
+      <circle cx="155" cy="14" r="2"
+        fill="rgba(230,77,0,1)" 
+        stroke="rgba(230,77,0,1)" stroke-width="3"
+        opacity="1"/> 
+      <circle cx="160" cy="5" r="2"
+        fill="rgba(230,77,0,1)" 
+        stroke="rgba(230,77,0,1)" stroke-width="3"
+        opacity='1'/>
+      <circle cx="165" cy="14" r="2"
+        fill="rgba(230,77,0,1)" 
+        stroke="rgba(230,77,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="115" y="35" fill="rgba(187, 215, 214, 1)">MODIS < 12 hrs</text>
+      <circle cx="270" cy="14" r="2"
+        fill="rgba(255,85,0,1)" 
+        stroke="rgba(255,85,0,1)" stroke-width="3"
+        opacity="1"/>  
+      <circle cx="275" cy="5" r="2"
+        fill="rgba(255,85,0,1)" 
+        stroke="rgba(255,85,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="280" cy="14" r="2"
+        fill="rgba(255,85,0,1)" 
+        stroke="rgba(255,85,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="230" y="35" fill="rgba(187, 215, 214, 1)">MODIS < 24 hrs</text>
+      <circle cx="385" cy="14" r="2"
+        fill="rgba(255,169,0,1)" 
+        stroke="rgba(255,169,0,1)" stroke-width="3"
+        opacity="1"/>  
+      <circle cx="390" cy="5" r="2"
+        fill="rgba(255,169,0,1)" 
+        stroke="rgba(255,169,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="395" cy="14" r="2"
+        fill="rgba(255,169,0,1)" 
+        stroke="rgba(255,169,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="345" y="35" fill="rgba(187, 215, 214, 1)">MODIS < 48 hrs</text>
+      <circle cx="500" cy="14" r="2"
+        fill="rgba(255,255,0,1)" 
+        stroke="rgba(255,255,0,1)" stroke-width="3"
+        opacity="1"/>  
+      <circle cx="505" cy="5" r="2"
+        fill="rgba(255,255,0,1)" 
+        stroke="rgba(255,255,0,1)" stroke-width="3"
+        opacity="1"/>
+      <circle cx="510" cy="14" r="2"
+        fill="rgba(255,255,0,1)" 
+        stroke="rgba(255,255,0,1)" stroke-width="3"
+        opacity="1"/>
+      <text x="460" y="35" fill="rgba(187, 215, 214, 1)">MODIS > 48 hrs</text> 
+    </svg>
+  </div>
+    <p id='slide'>Pull Slider Left to View Sage-Grouse Habitat Layer</p>
+    <input id="swipe" value='100' type="range">
+  </div>
+ -->
+
+    <div style='' id='legend' >
+      <div class="overwrap" style="display: inline;">
+      <p id='slide'>Pull Slider Left to View Sage-Grouse Habitat Layer</p>
+      <input id="swipe" value='100' type="range">
+      <!-- <button id="download" class="btn btn-1 btn-1c" style="margin-left: 1rem"><a id="export-png" download="map.png"><i class="fa fa-download"></i>Download PNG</a></button> -->
+      </div>
+      <button class="drawer-button btn btn-1 btn-1c">Click for Legend</button>
+      <br>
+    <div style="font-size: x-small" class="drawer">
+      <svg style='float: left' width="560" height="80">
+        <circle cx="30" cy="15" r="7"
+          fill="rgba(221,48,3, .95)" 
+          stroke="rgba(221,48,3, 1)" stroke-width="3"
+          opacity="1"></circle>
+        <text x="0" y="40" fill="rgba(187, 215, 214, 1)">New Fires
+          <tspan x="0" y="55">Initial Attack</tspan>
+          <tspan x="0" y="70">Age &lt; 30 hrs</tspan>
+        </text> 
+        <circle cx="145" cy="15" r="7"
+          fill="rgba(254,253,6, 0.9)" 
+          stroke="rgba(254,253,6, 1)" stroke-width="3"
+          opacity='1'></circle>
+        <text x="115" y="40" fill="rgba(187, 215, 214, 1)">Ongoing Fires
+          <tspan x="115" y="55">Age &lt; 10 days &amp;</tspan>
+          <tspan x="115" y="70">Updated &lt; 5 days</tspan>
+        </text>
+<!--         <circle cx="260" cy="15" r="9"
+          fill='rgba(145,9,198,1)' 
+          stroke='rgba(187,215,214,.2)' stroke-width="3"
+          opacity="1"></circle> 
+        <circle cx="260" cy="15" r="7"
+          fill='rgba(145,9,198,1)' 
+          stroke='rgba(145,9,198,1)' stroke-width="3"
+          opacity="1"></circle>
+        <text x="230" y="40" fill="rgba(187, 215, 214, 1)">Team Fires
+          <tspan x="230" y="55">Managed by a</tspan>
+          <tspan x="230" y="70">Type 1, 2, or 3 Team</tspan>
+        </text>  -->
+        <circle cx="260" cy="15" r="7"
+          fill="rgba(253,2,125, 0.9)" 
+          stroke="rgba(255, 0, 128, 1)" stroke-width="3"
+          opacity="1"></circle>
+        <text x="230" y="40" fill="rgba(187, 215, 214, 1)">Prescribed Fires
+          <tspan x="230" y="55">Age &lt; 10 days &amp;</tspan>
+          <tspan x="230" y="70">Updated &lt; 5 days</tspan>
+        </text>
+        <rect x='390' y='7' width='14' height='14'
+          fill="rgba(1,243,255,1)" 
+          stroke="rgba(1,255,67,1)" stroke-width="3"
+          opacity="1"></rect>
+        <text x="360" y="40" fill="rgba(187, 215, 214, 1)">Fire Perimeters
+          <tspan x="360" y="55">GeoMAC</tspan>
+        </text> 
+        <text x="460" y="40" fill="rgba(187, 215, 214, 1)">Current as of:  
+          <tspan id='refresh' x="460" y="55"></tspan>
+          <tspan x="460" y="70"></tspan>
+        </text> 
+      </svg>
+      <svg style='' width="560" height="40">
+        <rect x='35' y='0' width='20' height='20' rx='1' ry='1'
+          fill="rgba(187,215,214,.4)" 
+          stroke="rgba(187,215,214,.4)" stroke-width="0"
+          opacity="1"></rect>    
+        <circle cx="40" cy="14" r="2"
+          fill="rgba(168,0,0,1)" 
+          stroke="rgba(168,0,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <circle cx="45" cy="5" r="2"
+          fill="rgba(168,0,0,1)" 
+          stroke="rgba(168,0,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <circle cx="50" cy="14" r="2"
+          fill="rgba(168,0,0,1)" 
+          stroke="rgba(168,0,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <text x="0" y="35" fill="rgba(187, 215, 214, 1)">MODIS &lt; 6 hrs</text>
+        <circle cx="155" cy="14" r="2"
+          fill="rgba(230,77,0,1)" 
+          stroke="rgba(230,77,0,1)" stroke-width="3"
+          opacity="1"></circle> 
+        <circle cx="160" cy="5" r="2"
+          fill="rgba(230,77,0,1)" 
+          stroke="rgba(230,77,0,1)" stroke-width="3"
+          opacity='1'></circle>
+        <circle cx="165" cy="14" r="2"
+          fill="rgba(230,77,0,1)" 
+          stroke="rgba(230,77,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <text x="115" y="35" fill="rgba(187, 215, 214, 1)">MODIS &lt; 12 hrs</text>
+        <circle cx="270" cy="14" r="2"
+          fill="rgba(255,85,0,1)" 
+          stroke="rgba(255,85,0,1)" stroke-width="3"
+          opacity="1"></circle>  
+        <circle cx="275" cy="5" r="2"
+          fill="rgba(255,85,0,1)" 
+          stroke="rgba(255,85,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <circle cx="280" cy="14" r="2"
+          fill="rgba(255,85,0,1)" 
+          stroke="rgba(255,85,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <text x="230" y="35" fill="rgba(187, 215, 214, 1)">MODIS &lt; 24 hrs</text>
+        <circle cx="385" cy="14" r="2"
+          fill="rgba(255,169,0,1)" 
+          stroke="rgba(255,169,0,1)" stroke-width="3"
+          opacity="1"></circle>  
+        <circle cx="390" cy="5" r="2"
+          fill="rgba(255,169,0,1)" 
+          stroke="rgba(255,169,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <circle cx="395" cy="14" r="2"
+          fill="rgba(255,169,0,1)" 
+          stroke="rgba(255,169,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <text x="345" y="35" fill="rgba(187, 215, 214, 1)">MODIS &lt; 48 hrs</text>
+        <circle cx="500" cy="14" r="2"
+          fill="rgba(255,255,0,1)" 
+          stroke="rgba(255,255,0,1)" stroke-width="3"
+          opacity="1"></circle>  
+        <circle cx="505" cy="5" r="2"
+          fill="rgba(255,255,0,1)" 
+          stroke="rgba(255,255,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <circle cx="510" cy="14" r="2"
+          fill="rgba(255,255,0,1)" 
+          stroke="rgba(255,255,0,1)" stroke-width="3"
+          opacity="1"></circle>
+        <text x="460" y="35" fill="rgba(187, 215, 214, 1)">MODIS &gt; 48 hrs</text> 
+      </svg>
+      <svg style='' width="560" height="40">
+        <rect x='35' y='0' width='20' height='20' rx='1' ry='1'
+          fill="rgba(187,215,214,.4)" 
+          stroke="rgba(187,215,214,.4)" stroke-width="0"
+          opacity="1"></rect>
+        <rect x='37' y='11' width='6' height='6'
+          fill="rgba(168,0,0,1)" 
+          stroke="rgba(168,0,0,1)" stroke-width="0"
+          opacity="1"></rect>   
+        <rect x='42' y='2' width='6' height='6'
+          fill="rgba(168,0,0,1)" 
+          stroke="rgba(168,0,0,1)" stroke-width="0"
+          opacity="1"></rect>
+        <rect x='47' y='11' width='6' height='6'
+          fill="rgba(168,0,0,1)" 
+          stroke="rgba(168,0,0,1)" stroke-width="0"
+          opacity="1"></rect>      
+        <text x="0" y="35" fill="rgba(187, 215, 214, 1)">VIIRS &lt; 6 hrs</text>
+        <rect x='152' y='11' width='6' height='6'
+          fill="rgba(230,77,0,1)" 
+          stroke="rgba(230,77,0,1)" stroke-width="0"
+          opacity="1"></rect>   
+        <rect x='157' y='2' width='6' height='6'
+          fill="rgba(230,77,0,1)" 
+          stroke="rgba(230,77,0,1)" stroke-width="0"
+          opacity="1"></rect>
+        <rect x='162' y='11' width='6' height='6'
+          fill="rgba(230,77,0,1)" 
+          stroke="rgba(230,77,0,1)" stroke-width="0"
+          opacity="1"></rect>    
+        <text x="115" y="35" fill="rgba(187, 215, 214, 1)">VIIRS &lt; 12 hrs</text>
+        <rect x='267' y='11' width='6' height='6'
+          fill="rgba(255,85,0,1)" 
+          stroke="rgba(255,85,0,1)" stroke-width="0"
+          opacity="1"></rect>   
+        <rect x='272' y='2' width='6' height='6'
+          fill="rgba(255,85,0,1)" 
+          stroke="rgba(255,85,0,1)" stroke-width="0"
+          opacity="1"></rect>
+        <rect x='277' y='11' width='6' height='6'
+          fill="rgba(255,85,0,1)" 
+          stroke="rgba(255,85,0,1)" stroke-width="0"
+          opacity="1"></rect>    
+        <text x="230" y="35" fill="rgba(187, 215, 214, 1)">VIIRS &lt; 24 hrs</text>
+        <rect x='382' y='11' width='6' height='6'
+          fill="rgba(255,169,0,1)" 
+          stroke="rgba(255,169,0,1)" stroke-width="0"
+          opacity="1"></rect>   
+        <rect x='387' y='2' width='6' height='6'
+          fill="rgba(255,169,0,1)" 
+          stroke="rgba(255,169,0,1)" stroke-width="0"
+          opacity="1"></rect>
+        <rect x='392' y='11' width='6' height='6'
+          fill="rgba(255,169,0,1)" 
+          stroke="rgba(255,169,0,1)" stroke-width="0"
+          opacity="1"></rect>  
+        <text x="345" y="35" fill="rgba(187, 215, 214, 1)">VIIRS &lt; 48 hrs</text>
+        <rect x='497' y='11' width='6' height='6'
+          fill="rgba(255,255,0,1)" 
+          stroke="rgba(255,255,0,1)" stroke-width="0"
+          opacity="1"></rect>   
+        <rect x='502' y='2' width='6' height='6'
+          fill="rgba(255,255,0,1)" 
+          stroke="rgba(255,255,0,1)" stroke-width="0"
+          opacity="1"></rect>
+        <rect x='507' y='11' width='6' height='6'
+          fill="rgba(255,255,0,1)" 
+          stroke="rgba(255,255,0,1)" stroke-width="0"
+          opacity="1"></rect>  
+        <text x="460" y="35" fill="rgba(187, 215, 214, 1)">VIIRS &gt; 48 hrs</text> 
+      </svg>
+<!--       <svg style='' width="560" height="40">
+        <rect x='35' y='0' width='20' height='20' rx='1' ry='1'
+          fill="rgba(187,215,214,.4)" 
+          stroke="rgba(187,215,214,.4)" stroke-width="0"
+          opacity="1"></rect>
+        <polygon   
+          fill="rgba(168,0,0,1)" 
+          stroke="rgba(168,0,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            36, 18
+            40, 11
+            44, 18
+          "></polygon>   
+        <polygon 
+          fill="rgba(168,0,0,1)" 
+          stroke="rgba(168,0,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            41, 9
+            45, 2
+            49, 9
+          "></polygon>
+        <polygon 
+          fill="rgba(168,0,0,1)" 
+          stroke="rgba(168,0,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            46, 18
+            50, 11
+            54, 18
+          "></polygon>      
+        <text x="0" y="35" fill="rgba(187, 215, 214, 1)">IgPoint &lt; 6 hrs</text>
+        <polygon 
+          fill="rgba(230,77,0,1)" 
+          stroke="rgba(230,77,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            151, 18
+            155, 11
+            159, 18
+          "></polygon>   
+        <polygon  
+          fill="rgba(230,77,0,1)" 
+          stroke="rgba(230,77,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            156, 9
+            160, 2
+            164, 9
+          "></polygon>
+        <polygon
+          fill="rgba(230,77,0,1)" 
+          stroke="rgba(230,77,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            161, 18
+            165, 11
+            169, 18
+          "></polygon>    
+        <text x="115" y="35" fill="rgba(187, 215, 214, 1)">IgPoint &lt; 12 hrs</text>
+        <polygon 
+          fill="rgba(255,85,0,1)" 
+          stroke="rgba(255,85,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            266, 18
+            270, 11
+            274, 18
+          "></polygon>   
+        <polygon
+          fill="rgba(255,85,0,1)" 
+          stroke="rgba(255,85,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            271, 9
+            275, 2
+            279, 9
+          "></polygon>
+        <polygon 
+          fill="rgba(255,85,0,1)" 
+          stroke="rgba(255,85,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            276, 18
+            280, 11
+            284, 18
+          "></polygon>    
+        <text x="230" y="35" fill="rgba(187, 215, 214, 1)">IgPoint &lt; 24 hrs</text>
+        <polygon 
+          fill="rgba(255,169,0,1)" 
+          stroke="rgba(255,169,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            381, 18
+            385, 11
+            389, 18
+          "></polygon>   
+        <polygon 
+          fill="rgba(255,169,0,1)" 
+          stroke="rgba(255,169,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            386, 9
+            390, 2
+            394, 9
+          "></polygon>
+        <polygon 
+          fill="rgba(255,169,0,1)" 
+          stroke="rgba(255,169,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            391, 18
+            395, 11
+            399, 18
+          "></polygon>  
+        <text x="345" y="35" fill="rgba(187, 215, 214, 1)">IgPoint &lt; 48 hrs</text>
+        <polygon 
+          fill="rgba(255,255,0,1)" 
+          stroke="rgba(255,255,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            496, 18
+            500, 11
+            504, 18
+          "></polygon>   
+        <polygon 
+          fill="rgba(255,255,0,1)" 
+          stroke="rgba(255,255,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            501, 9
+            505, 2
+            509, 9
+          "></polygon>
+        <polygon 
+          fill="rgba(255,255,0,1)" 
+          stroke="rgba(255,255,0,1)" stroke-width="0"
+          opacity="1"
+          points="
+            506, 18
+            510, 11
+            514, 18
+          "></polygon>  
+        <text x="460" y="35" fill="rgba(187, 215, 214, 1)">IgPoint &gt; 48 hrs</text> 
+      </svg>  -->              
+    </div>
+
+  </div>
+    
+  <!-- <div id="info" class="alert-fire">
+    <strong>Incident ID: </strong><span id="uniqueFireIdentifier"></span><br>
+    <strong>Incident Name: </strong><span id="incidentName"></span><br>
+    <strong>Fire Discovery Date/Time: </strong><span id='fireDiscoveryDateTime'></span><br>
+    <strong>Acreage:</strong><span id="dailyAcres"></span><br>
+    <strong>Strategy: </strong><span id='strategy'></span><br>
+    <strong>Dispatch Center ID: </strong><span id='dispatchCenterID'></span><br>
+    <strong>Fire Cause: </strong><span id='fireCause'></span><br>
+    <strong>Fuel Type: </strong><span id="fuelType"></span><br>
+    <strong>Incident Commander: </strong><span id="incidentCommanderName"></span><br>
+    <strong>Lat / Long: </strong><span id='latLong'></span><br>
+    <strong>Agency: </strong><span id="ownership"></span><br>
+    <strong>Predictive Services Area ID: </strong><span id='predictiveServiceAreaID'></span> 
+  </div> -->
+  
+  <div id="map3d" class="dontsee"></div>
+  <!-- <div class="notification-bar">
+  	<div id="messageBar" class="message-bar"></div>
+  	<div id="coordinates"></div>
+ 	</div> -->
+  <div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+    <div id="popup-content"></div>
+    <a href='' id="zoom-to"></a>
+  </div>
+</div>
+ <!-- <button  id="toggle" class="">3D VIEW</button> -->
+ <button  id="button" class="">popups</button>
+
+
+
+<?php 
+  $IRWIN1 = 'gbccfiredata';
+  $IRWIN2 = 'KFyHQ2RAdxWa';
+  $EGP1 = 'gbccfiredata';
+  $EGP2 = 'D0gs3ar2021!!';
+  echo '<script>';
+  // echo 'var IRWIN1 = ' . json_encode($IRWIN1) . ';';
+  // echo 'var IRWIN2 = ' . json_encode($IRWIN2) . ';';
+  echo 'var EGP1 = ' . json_encode($EGP1) . ';';
+  echo 'var EGP2 = ' . json_encode($EGP2) . ';';
+  echo '</script>';
+?>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) {
+  firemap.addEventListener('mouseover', function() {
+    tab3.click();
+    $('#tabs').tabs({ fx: { opacity: 'toggle', duration: 'fast' } }).tabs('rotate', null, false);
+  });
+  firemap.addEventListener('mouseout', function() {
+    $('#tabs').tabs({ fx: { opacity: 'toggle', duration: 'fast' } }).tabs('rotate', 20000, false);
+  });
+});
+</script>
+
+  <!-- <div id="map2d" class="map" style="width:600px;height:400px;float:left;"></div> -->
+  
+
+ 
+
+  
+    <!-- <button id="rotateLeft" title="Rotate clockwise">↻</button>
+    <button id="rotateRight" title="Rotate counterclockwise">↺</button>
+    <input type="button" value="setHeading(0)" onclick="javascript:camera.setHeading(0)" />
+    <input type="button" value="setHeading(Math.PI / 2)" onclick="javascript:camera.setHeading(Math.PI / 2)" />
+    <input type="button" value="setHeading(Math.PI)" onclick="javascript:camera.setHeading(Math.PI)" />
+    <input type="button" value="setHeading((3 / 2) * Math.PI)" onclick="javascript:camera.setHeading((3 / 2) * Math.PI)" />  -->
+
+  <!-- <script src="http://openlayers.org/en/v3.15.1/examples/resources/mapbox-streets-v6-style.js"></script> -->
+  <!-- <script src='firecesium/examples/velocity.min.js'></script> -->
+  <script src="./firecesium/examples/inject_ol3_cesium.js"></script>
+<!--   <script type="firecesium/examples/layerswitcher/src/ol3-layerswitcher.js"></script>
+ -->  <!-- <script type="text/javascript" src="fetch.js"></script> -->
+  <!-- <script type="text/javascript" src='selection2.js'></script> -->
+  <!-- <script src="firecesium/fireDataLayers.js" async></script> -->
+  <script src="./firecesium/examples/selection.js" async></script>
+  <!-- <script src="firecesium/selection.js" async></script> -->
+<!-- </body> -->
+<!-- </html> -->
+

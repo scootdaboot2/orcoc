@@ -1,0 +1,177 @@
+<aside class="col-md-3 col-lg-3 col-lg-push-2 col-md-push-3" role="complementary">
+  <div class="region region-sidebar-second">
+
+<ul class="nav nav-pills nav-justified">
+  <li class="nav-item" onmouseover="switchTab('tab_1', 'content_1')">
+    <a id='tab_1' class="nav-link tabmenu tab_on active" href="javascript:switchTab('tab_1', 'content_1')">Fire Danger</a>
+  </li>
+  <li class="nav-item" onmouseover="switchTab('tab_2', 'content_2')">
+    <a id='tab_2' class="nav-link tabmenu tab_off" href="javascript:switchTab('tab_2', 'content_2')">Fire Data</a>
+  </li>
+</ul>    
+
+<div id="content_1" class="tabcontent">
+<!-- <section> -->
+  <!-- <div class="cards-list"> -->
+    <div class="card 1">
+      <div class="card_image"> 
+        <img src="./images/fire-sign-low.png" width="100" style="background-color: #dfd7c9; border-radius: 5px; padding: 3px;">
+      </div>
+      <div class="card_title">
+        <p>Columbia Plateau</p>
+      </div>
+      <div class="card_image">
+        <img src="./images/fire-sign-low.png" width="100" style="background-color: #dfd7c9; border-radius: 5px; padding: 3px;">          
+      </div>
+      <div class="card_title">
+        <p>East Slope</p>
+      </div>
+
+      <div class="card_image"> 
+        <img src="./images/fire-sign-low.png" width="100" style="background-color: #dfd7c9; border-radius: 5px; padding: 3px;">
+      </div>
+      <div class="card_title">
+        <p>High Desert</p>
+      </div>
+
+      <div class="card_image"> 
+        <img src="./images/fire-sign-low.png" width="100" style="background-color: #dfd7c9; border-radius: 5px; padding: 3px;">
+      </div>
+      <div class="card_title">
+        <p>Monument</p>
+      </div>
+
+      <div class="card_image"> 
+        <img src="./images/fire-sign-low.png" width="100" style="background-color: #dfd7c9; border-radius: 5px; padding: 3px;">
+      </div>
+      <div class="card_title">
+        <p>Ochoco-Maury</p>
+      </div>
+
+      <div class="card_image"> 
+        <img src="./images/fire-sign-low.png" width="100" style="background-color: #dfd7c9; border-radius: 5px; padding: 3px;">
+      </div>
+      <div class="card_title">
+        <p>New FDRA</p>
+      </div>
+
+    </div>
+  <!-- </div>       -->
+<!-- </section> -->
+
+    <!-- <section class=""> -->
+        <div class="alert alert-warning" style="color: #2f2d2e; background-color: #ff8d00; text-shadow: #ff8d00 0px 0px 0px;">
+          <center>
+            <strong>Report Wildfires: 541-316-7700</strong>
+            <br>
+            <strong>Public Use Fire Restrictions: 1-800-523-4737</strong>
+            <br>
+            <strong>Central Oregon Dispatch: 541-316-7700</strong>
+          </center>
+        </div>
+    <!-- </section> -->
+
+    <section id="" class="">
+        <div class="panel panel-default">
+          <div class="panel-body" style="display: flex; flex-direction: column; align-items: center;">
+            <a style="background-color: #333333; border-radius: 3px; padding: 5px;" href="https://centraloregonfire.org/">
+              <img src="./images/central-oregon-fire-smoke-information-logo.webp" width="100%">
+            </a>
+            <br>
+            <a href="https://twitter.com/CentralORFire?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @CentralORFire</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+        </div>
+    </section>
+
+</div>
+
+<div id="content_2" class='tabcontent panel panel-body' style='display:none'>
+  <strong>Incident ID: </strong><br><span id="uniqueFireIdentifier"></span><br>
+  <strong>Incident Name: </strong><br><span id="incidentName"></span><br>
+  <strong>Fire Discovery Date/Time: </strong><br><span id='fireDiscoveryDateTime'></span><br>
+  <strong>Acreage:</strong><br><span id="dailyAcres"></span><br>
+  <strong>Strategy: </strong><br><span id='strategy'></span><br>
+  <strong>Dispatch Center ID: </strong><br><span id='dispatchCenterID'></span><br>
+  <strong>Fire Cause: </strong><br><span id='fireCause'></span><br>
+  <strong>Fuel Type: </strong><br><span id="fuelType"></span><br>
+  <strong>Incident Commander: </strong><br><span id="incidentCommanderName"></span><br>
+  <strong>Lat / Long: </strong><br><span id='latLong'></span><br>
+  <strong>Agency: </strong><br><span id="ownership"></span><br>
+  <strong>Predictive Services Area ID: </strong><br><span id='predictiveServiceAreaID'></span><br>
+  <strong>Sage-Grouse Habitat: </strong><br><span id="sagegrouseOrigin"></span>
+</div>
+
+
+
+  </div>
+</aside>
+
+
+<script type="text/javascript" async>
+var info = document.getElementById('info');
+var container = document.getElementById('popup');
+var content = document.getElementById('popup-content');
+var uniqueFireIdentifier = document.getElementById('uniqueFireIdentifier');
+var incidentName = document.getElementById('incidentName');
+var fireDiscoveryDateTime = document.getElementById('fireDiscoveryDateTime');
+var dailyAcres = document.getElementById('dailyAcres');
+var strategy = document.getElementById('strategy');
+var dispatchCenterID = document.getElementById('dispatchCenterID');
+var fireCause = document.getElementById('fireCause');
+var fuelType = document.getElementById('fuelType');
+var incidentCommanderName = document.getElementById('incidentCommanderName');
+var latLong = document.getElementById('latLong');
+var ownership = document.getElementById('ownership');
+var predictiveServiceAreaID = document.getElementById('predictiveServiceAreaID');
+var closer = document.getElementById('popup-closer');
+var sagegrouseOrigin = document.getElementById('sagegrouseOrigin');
+var toggle = document.getElementById('toggle');
+var firemap = document.getElementById('firemap');
+var tab3 = document.getElementById('tab3');
+var tabthree = document.getElementById('tabs-3');
+var refresh = document.getElementById('refresh');
+function resetVar() {
+  uniqueFireIdentifier = document.getElementById('uniqueFireIdentifier');
+  incidentName = document.getElementById('incidentName');
+  fireDiscoveryDateTime = document.getElementById('fireDiscoveryDateTime');
+  dailyAcres = document.getElementById('dailyAcres');
+  strategy = document.getElementById('strategy');
+  dispatchCenterID = document.getElementById('dispatchCenterID');
+  fireCause = document.getElementById('fireCause');
+  fuelType = document.getElementById('fuelType');
+  incidentCommanderName = document.getElementById('incidentCommanderName');
+  latLong = document.getElementById('latLong');
+  ownership = document.getElementById('ownership');
+  predictiveServiceAreaID = document.getElementById('predictiveServiceAreaID');
+  closer = document.getElementById('popup-closer');
+  sagegrouseOrigin = document.getElementById('sagegrouseOrigin');
+} 
+
+</script>
+
+<script>
+function switchTab(tab_id, tab_content) {
+  var x = document.getElementsByClassName("tabcontent");
+  var i;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = 'none'; // hide all tab content
+  }
+  // document.getElementById(tab_content).classList.add('on_tab')
+  document.getElementById(tab_content).style.display = 'block'; // display the content of the tab we need
+ 
+  // now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
+  var x = document.getElementsByClassName("tabmenu");
+  var i;
+  for (i = 0; i < x.length; i++) {
+    x[i].className = 'tabmenu nav-link tab_off'; 
+  }
+  document.getElementById(tab_id).className = 'nav-link tabmenu tab_on active';
+  // document.getElementById(tab_id).classlist.toggle('active')
+} 
+
+// setInterval(function() {
+//   switchTab(document.getElementsByClassName("tabcontent on_tab")[0].id)}, 3000) 
+
+</script>
+
+
